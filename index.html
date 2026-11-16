@@ -1011,11 +1011,11 @@ function KanbanView({ jobs, onCardClick, onStatusChange, onAIQuickClick }) {
   return (
     <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-6">
       <div className="mb-4">
-        <div className="text-[11px] uppercase tracking-[0.25em] text-brand-500 font-mono mb-1 font-semibold">01 — Pipeline Overview</div>
+        <div className="text-[11px] uppercase tracking-[0.25em] text-accent-orange font-mono mb-1 font-semibold">01 — Pipeline Overview</div>
         <h1 className="font-display text-3xl md:text-4xl font-bold text-accent-orange dark-bg-heading">
           投递看板 <span className="italic text-accent-orange">/ The Board</span>
         </h1>
-        <p className="text-sm text-ink-500 mt-1">拖拽卡片改变状态 · 点击查看详情 · 悬浮显示 AI 分析按钮</p>
+        <p className="text-sm text-ink-500 mt-1"><span className="text-accent-orange font-semibold">拖拽卡片改变状态 · 点击查看详情 · 悬浮显示 AI 分析按钮</span></p>
       </div>
 
       {/* Filter bar */}
@@ -1456,7 +1456,7 @@ function AnalyticsView({ jobs }) {
         <h1 className="font-display text-3xl md:text-4xl font-bold text-accent-orange dark-bg-heading">
           数据洞察 <span className="italic text-accent-orange">/ Analytics</span>
         </h1>
-        <p className="text-sm text-ink-500 mt-1">量化你的求职进度,用数据驱动决策</p>
+        <p className="text-sm text-ink-500 mt-1"><span className="text-accent-orange font-semibold">量化你的求职进度,用数据驱动决策</span></p>
       </div>
 
       {/* KPI Row */}
