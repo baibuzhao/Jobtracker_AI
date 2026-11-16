@@ -1054,8 +1054,8 @@ function KanbanView({ jobs, onCardClick, onStatusChange, onAIQuickClick }) {
           >清除筛选</button>
         )}
 
-        <span className="ml-auto text-xs text-ink-500 font-mono">
-          显示 <span className="text-ink-900 font-semibold">{filteredJobs.length}</span>
+        <span className="ml-auto text-xs text-accent-orange font-mono font-semibold">
+          显示 <span className="text-accent-orange font-semibold">{filteredJobs.length}</span>
           {hasFilter && <span> / {jobs.length}</span>} 个岗位
         </span>
       </div>
@@ -1295,7 +1295,7 @@ function CalendarView({ jobs, onCardClick }) {
             <span className="mx-2 italic text-accent-orange font-semibold">{monthLabel}</span>
           </div>
           <button onClick={nextMonth} className="w-9 h-9 flex items-center justify-center hover:bg-ink-100 rounded-sm text-ink-600">›</button>
-          <button onClick={goToday} className="ml-2 px-3 py-1.5 text-xs border border-ink-300 hover:bg-ink-100 rounded-sm">今天</button>
+          <button onClick={goToday} className="ml-2 px-3 py-1.5 text-xs text-accent-orange font-semibold border border-accent-orange hover:bg-accent-orange/10 rounded-sm">今天</button>
         </div>
       </div>
 
@@ -1573,13 +1573,13 @@ function AnalyticsView({ jobs }) {
 
 function KPICard({ label, value, suffix, highlight, labelColor }) {
   return (
-    <div className={`p-5 rounded-2xl ${highlight ? 'bg-gradient-to-br from-ink-900 to-ink-800 text-white' : 'bg-white border border-ink-200'}`}>
-      <div className={`text-[10px] uppercase tracking-[0.2em] font-mono mb-2 font-semibold ${highlight ? 'text-brand-400' : 'text-ink-500'}`}>
+    <div className={`p-5 rounded-2xl ${highlight ? 'bg-gradient-to-br from-ink-900 to-ink-800 text-accent-orange' : 'bg-white border border-ink-200'}`}>
+      <div className={`text-[10px] uppercase tracking-[0.2em] font-mono mb-2 font-semibold ${highlight ? 'text-accent-orange' : 'text-ink-500'}`} style={{ color: highlight ? '#f97316' : undefined }}>
         {label}
       </div>
       <div className="flex items-baseline gap-1">
         <span className="font-display text-4xl font-light">{value}</span>
-        {suffix && <span className={`text-sm font-mono ${highlight ? 'text-ink-300' : 'text-ink-500'}`}>{suffix}</span>}
+        {suffix && <span className={`text-sm font-mono ${highlight ? 'text-accent-orange' : 'text-ink-500'}`}>{suffix}</span>}
       </div>
     </div>
   );
