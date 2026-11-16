@@ -1020,7 +1020,7 @@ function KanbanView({ jobs, onCardClick, onStatusChange, onAIQuickClick }) {
 
       {/* Filter bar */}
       <div className="mb-5 flex items-center gap-2 flex-wrap">
-        <span className="text-xs text-ink-500 font-mono uppercase tracking-wider mr-1">筛选:</span>
+        <span className="text-xs text-accent-orange font-mono uppercase tracking-wider mr-1 font-semibold">筛选:</span>
 
         {/* Track filter chips */}
         <FilterChip
@@ -1081,11 +1081,11 @@ function KanbanView({ jobs, onCardClick, onStatusChange, onAIQuickClick }) {
                       className="w-2 h-2 rounded-full"
                       style={{ background: status.color }}
                     ></span>
-                    <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: status.color }}>
+                    <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: ['planning', 'offer', 'closed'].includes(status.id) ? '#f97316' : status.color }}>
                       {status.label}
                     </span>
                   </div>
-                  <span className="text-xs font-mono text-ink-400 bg-ink-100 px-1.5 py-0.5 rounded-md">{items.length}</span>
+                  <span className="text-xs font-mono text-accent-orange bg-ink-100 px-1.5 py-0.5 rounded-md">{items.length}</span>
                 </div>
 
                 <div className="space-y-2.5 min-h-[60vh]">
@@ -1291,8 +1291,8 @@ function CalendarView({ jobs, onCardClick }) {
         <div className="flex items-center gap-2">
           <button onClick={prevMonth} className="w-9 h-9 flex items-center justify-center hover:bg-ink-100 rounded-sm text-ink-600">‹</button>
           <div className="font-display text-xl px-3 min-w-[140px] text-center">
-            <span className="font-mono text-sm text-ink-500">{year}</span>
-            <span className="mx-2 italic">{monthLabel}</span>
+            <span className="font-mono text-sm text-accent-orange font-semibold">{year}</span>
+            <span className="mx-2 italic text-accent-orange font-semibold">{monthLabel}</span>
           </div>
           <button onClick={nextMonth} className="w-9 h-9 flex items-center justify-center hover:bg-ink-100 rounded-sm text-ink-600">›</button>
           <button onClick={goToday} className="ml-2 px-3 py-1.5 text-xs border border-ink-300 hover:bg-ink-100 rounded-sm">今天</button>
@@ -1355,12 +1355,12 @@ function CalendarView({ jobs, onCardClick }) {
 
         {/* Upcoming */}
         <div>
-          <div className="text-[11px] uppercase tracking-[0.2em] text-ink-500 font-mono mb-3">
+          <div className="text-[11px] uppercase tracking-[0.2em] text-accent-orange font-mono mb-3 font-semibold">
             Upcoming / 待办日程
           </div>
           <div className="space-y-2">
             {upcomingEvents.length === 0 && (
-              <div className="text-sm text-ink-400 p-4 border border-dashed border-ink-200 rounded-sm">
+              <div className="text-sm text-accent-orange font-semibold p-4 border border-dashed border-ink-200 rounded-sm">
                 近期没有待办
               </div>
             )}
@@ -1461,10 +1461,10 @@ function AnalyticsView({ jobs }) {
 
       {/* KPI Row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <KPICard label="目标岗位总数" value={stats.total} suffix="个" highlight />
+        <KPICard label="目标岗位总数" value={stats.total} suffix="个" highlight labelColor="#f97316" />
         <KPICard label="已投递" value={stats.applied} suffix={`/${stats.total}`} />
         <KPICard label="进入面试" value={stats.interview} suffix="个" />
-        <KPICard label="期望月薪均值" value={Math.round(stats.avgSalary)} suffix="K" highlight />
+        <KPICard label="期望月薪均值" value={Math.round(stats.avgSalary)} suffix="K" highlight labelColor="#f97316" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -1571,7 +1571,7 @@ function AnalyticsView({ jobs }) {
   );
 }
 
-function KPICard({ label, value, suffix, highlight }) {
+function KPICard({ label, value, suffix, highlight, labelColor }) {
   return (
     <div className={`p-5 rounded-2xl ${highlight ? 'bg-gradient-to-br from-ink-900 to-ink-800 text-white' : 'bg-white border border-ink-200'}`}>
       <div className={`text-[10px] uppercase tracking-[0.2em] font-mono mb-2 font-semibold ${highlight ? 'text-brand-400' : 'text-ink-500'}`}>
